@@ -16,7 +16,7 @@ function generate_token() {
 }
 
 function put_token(ws) {
-    token = generate_token();
+    var token = generate_token();
     tokens[token] = ws;
     console.log('added token: ' + token);
     return token;
@@ -83,7 +83,7 @@ wss.on('connection', function(ws) {
         }
 
         if (data['please'] == "let me in") {
-            token = put_token(ws);
+            var token = put_token(ws);
             ws.send(JSON.stringify({'token': token}))
             return
         }
