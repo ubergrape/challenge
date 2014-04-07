@@ -1,32 +1,28 @@
-challenge
-=========
+This is a arogramming challenge for AIESEC applicants
 
-Programming challenge for AIESEC applicants
+## Problem ##
 
-### Problem ###
-
-The the chatgrape challenge server needs a solution to a riddle. Login via websockets, ask the server for the challenge, give him the correct solution (the is always one and only one solution). You can find the API at the bottom of this document.
+The the chatgrape challenge server needs a solution to a riddle. Login via websockets, ask the server for the challenge, give him the correct solution (there is always one and only one solution). You can find the API at the bottom of this document.
 
 The server will give you two numbers and should multiply them.
 
 Write tests to cover your code. 
 
-### Rules ###
+## Rules ##
 
 * Create an HTML Page with JavaScript that runs in the browser (current Google Chrome and Firefox)
-* Write tests using 
 * Use whatever libraries you want to use (jQuery, ...), but you can also write plain javascript
 * Write tests using [PhantomJS](http://phantomjs.org/)
 * Don't care about old browsers. If it works with Google Chrome and Firefox, it's fine.
 * Don't care about proxys, firewalls etc. The server only understand websockets and has no fallbacks
 
-### API ###
+## API ##
 
 The server always expects JSON but will only answer you with JSON sometimes.
 
-#### Login ####
+### Login ###
 
-Request: 
+**Request:** 
 
 ```
 {
@@ -36,7 +32,7 @@ Request:
 
 You will receive a 16 character alphanumeric token
 
-Response:
+**Response:**
 ```
 {
     "token": "..."
@@ -45,9 +41,9 @@ Response:
 
 After you are logged in, send the token with every request
 
-#### Get the challenge ####
+### Get the challenge ###
 
-Request:
+**Request:**
 ```
 {
   "token": "...",
@@ -55,7 +51,7 @@ Request:
 }
 ```
 
-Response:
+**Response:**
 ```
 {
   "challenge": {
@@ -65,9 +61,9 @@ Response:
 }
 ```
 
-#### Post the solution ####
+### Post the solution ###
 
-Request:
+**Request:**
 ```
 {
   "token": "...",
@@ -76,7 +72,7 @@ Request:
 }
 ```
 
-Response:
+**Response:**
 ```
 Thank you
 ```
