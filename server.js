@@ -83,6 +83,8 @@ function message_solution(ws, data) {
 
     if (check_solution(data.token, data.solution)) {
         ws.send("Thank you")
+    } else {
+        message_solution(ws, data);
     }
 }
 
