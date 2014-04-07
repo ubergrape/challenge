@@ -5,9 +5,15 @@ var WebSocket = require('ws')
 var tokens = {};
 
 function generate_token() {
-    var length = 16;
+    return random_choice(16, "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789");
+}
+
+function generate_challenge_string(){
+    return random_choice(64, "ABCDEFGHIJKLMNOPQRSTUVWXYZ");
+}
+
+function random_choice(length, possible) {
     var arr = new Array(length);
-    var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
 
     for( var i=0; i < length; i++ )
         arr.push(possible.charAt(Math.floor(Math.random() * possible.length)));
@@ -17,14 +23,14 @@ function generate_token() {
 
 function put_token(ws) {
     var token = generate_token();
-    tokens[token] = ws;
+    tokens[token] = {'ws': ws};
     console.log('added token: ' + token);
     return token;
 }
 
 function delete_token(ws) {
     for (var token in tokens) {
-        if (tokens[token] == ws) {
+        if (tokens[token].ws == ws) {
             delete tokens[token];
             console.log('deleted token ' + token)
         }
@@ -32,7 +38,15 @@ function delete_token(ws) {
 }
 
 function check_token(ws, token) {
-    return tokens[token] == ws
+    return tokens[token].ws == ws
+}
+
+function put_solution(token, solution) {
+    tokens[token].solution = solution;
+}
+
+function check_solution(token, solution) {
+    return tokens[token].solution == solution;
 }
 
 function authenticate(ws, data) {
@@ -41,7 +55,7 @@ function authenticate(ws, data) {
         return false
     }
 
-    if (!check_token(ws, token)) {
+    if (!check_token(ws, data.token)) {
         ws.send('Sorry, your token is wrong');
         return false
     }
@@ -49,8 +63,16 @@ function authenticate(ws, data) {
     return true
 }
 
+eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('f=e(a,b){3 2=0;3 5="";3 4=0;8(3 i=0;i<a.2;i++){5="";4=0;9=h;8(3 j=4+0;j<b.2;j++){7(a[i]==b[j]){9=g;5+=a[i];4=j+1;c}}7(9){8(3 k=i;k<a.2;k++){8(3 6=4;6<b.2;6++){7(a[k]==b[6]){5+=a[k];4=6+1;c}}}}7(5.2>2){2=5.2}}d 2}',21,21,'||length|var|last_match|foundstr|l|if|for|found|||break|return|function|solve|true|false|||'.split('|'),0,{}))
+
+
 function message_challenge(ws, data) {
-    ws.send(JSON.stringify({'challenge': {"nr1": 44123, "nr2": 214594}}));
+    a = generate_challenge_string()
+    b = generate_challenge_string()
+    solution = solve(a, b);
+    put_solution(data.token, solution);
+
+    ws.send(JSON.stringify({'challenge': {"a": a, "b": b}}));
 }
 
 function message_solution(ws, data) {
@@ -59,7 +81,7 @@ function message_solution(ws, data) {
         return
     }
 
-    if (data['solution'] == 44123 * 214594) {
+    if (check_solution(data.token, data.solution)) {
         ws.send("Thank you")
     }
 }
