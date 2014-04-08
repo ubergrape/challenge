@@ -6,13 +6,10 @@ The the chatgrape challenge server needs a solution to a riddle. Login via webso
 
 The server will give you two numbers and should multiply them.
 
-Write tests to cover your code. 
-
 ## Rules ##
 
 * Create an HTML Page with JavaScript that runs in the browser (current Google Chrome and Firefox)
 * Use whatever libraries you want to use (jQuery, ...), but you can also write plain javascript
-* Write tests using [PhantomJS](http://phantomjs.org/)
 * Don't care about old browsers. If it works with Google Chrome and Firefox, it's fine.
 * Don't care about proxys, firewalls etc. The server only understand websockets and has no fallbacks
 
@@ -55,8 +52,8 @@ After you are logged in, send the token with every request
 ```
 {
   "challenge": {
-    "nr1": 44123,
-    "nr2": 214594
+    "a": "DWWBBCYHMDRUGKULCVEKXINFMJFAOEJNPVFZPZKYHCSAOMANLZJXYVIQSFBKEXTH",
+    "b": "PEQOTFYLJTUXNOJYNUZXUZHYTVHBPPZYCMPSFEIQXETRNNIJTJOUUZQNCDRTUPXS"
   }
 }
 ```
@@ -68,7 +65,7 @@ After you are logged in, send the token with every request
 {
   "token": "...",
   "please": "I have the solution",
-  "solution": 9468531062
+  "solution": 11
 }
 ```
 
