@@ -1,4 +1,4 @@
-This is a arogramming challenge for AIESEC applicants
+This is a programming challenge for AIESEC applicants
 
 ## Problem ##
 
