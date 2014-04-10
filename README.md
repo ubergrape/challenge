@@ -6,9 +6,19 @@ The the chatgrape challenge server needs a solution to a riddle. Login via webso
 
 The server will give you two string and expects an answer.
 
+## Run Server ##
+
+```
+npm install ws
+node server.js
+```
+
+The websocket server now runs at localhost:8080
+
+
 ## Rules ##
 
-* Create an HTML Page with JavaScript that runs in the browser (current Google Chrome and Firefox)
+* Create an HTML page with JavaScript that runs in the browser (current Google Chrome and Firefox)
 * Use whatever libraries you want to use (jQuery, ...), but you can also write plain javascript
 * Don't care about old browsers. If it works with Google Chrome and Firefox, it's fine.
 * Don't care about proxys, firewalls etc. The server only understand websockets and has no fallbacks
