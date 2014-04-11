@@ -22,6 +22,7 @@ The websocket server now runs at localhost:8080
 * Use whatever libraries you want to use (jQuery, ...), but you can also write plain javascript
 * Don't care about old browsers. If it works with Google Chrome and Firefox, it's fine.
 * Don't care about proxys, firewalls etc. The server only understand websockets and has no fallbacks
+*
 
 ## Riddle ##
 
@@ -42,63 +43,63 @@ See the API documentation below to find out how to communicate with the server.
 ### Examples ###
 
 1. ##### Sample Input #####
-    
+
     ```
     HARRY
     SALLY
     ```
 
     ##### Sample Output #####
-    
+
     ```
     2
     ```
-    
+
     The longest possible subset of characters that is possible by deleting zero or more characters from `HARRY` and `SALLY` is `AY`, whose length is `2`.
 
 1. ##### Sample Input #####
-    
+
     ```
     AA
     BB
     ```
 
     ##### Sample Output #####
-    
+
     ```
     0
     ```
     `AA` and `BB` has no characters in common and hence the output `0`
 
 1. ##### Sample Input #####
-    
+
     ```
     SHINCHAN
     NOHARAAA
     ```
 
     ##### Sample Output #####
-    
+
     ```
     3
     ```
-    
+
     The largest set of characters, in order, between `SHINCHAN` and `NOHARAAA` is `NHA`.
 
 
 1. ##### Sample Input #####
-    
+
     ```
     ABCDEF
     FBDAMN
     ```
 
     ##### Sample Output #####
-    
+
     ```
     2
     ```
-    
+
     `BD` is the largest child.
 
 
@@ -108,7 +109,7 @@ The server always expects JSON but will only answer you with JSON sometimes.
 
 ### Login ###
 
-##### Request: ##### 
+##### Request: #####
 
 ```
 {
@@ -122,7 +123,7 @@ You will receive a 16 character alphanumeric token
 ```
 {
     "token": "..."
-} 
+}
 ```
 
 After you are logged in, send the token with every request

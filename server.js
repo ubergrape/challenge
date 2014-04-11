@@ -34,7 +34,7 @@ function delete_token(ws) {
             delete tokens[token];
             console.log('deleted token ' + token)
         }
-    } 
+    }
 }
 
 function check_token(ws, token) {
@@ -93,14 +93,14 @@ wss.on('connection', function(ws) {
         console.log("< " + message)
 
         var data = {}
-        
+
         try{
             data = JSON.parse(message)
         }catch(e){
             ws.send('Sorry, I didn\'t understand your message');
             return
         }
-        
+
         if (!data.hasOwnProperty('please')) {
             ws.send('How can I help you? send a JSON dictionary with a "please" key')
             return
@@ -115,7 +115,7 @@ wss.on('connection', function(ws) {
         if (!authenticate(ws, data)) {
             return
         }
-        
+
         if (data['please'] == "let me do the challenge") {
             message_challenge(ws, data);
         } else if (data['please'] == "I have the solution"){
