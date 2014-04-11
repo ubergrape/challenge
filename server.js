@@ -102,7 +102,7 @@ wss.on('connection', function(ws) {
         }
         
         if (!data.hasOwnProperty('please')) {
-            ws.send('Wow can I help you? send a JSON dictionary with a "please" key')
+            ws.send('How can I help you? send a JSON dictionary with a "please" key')
             return
         }
 
