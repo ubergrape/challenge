@@ -63,7 +63,8 @@ function authenticate(ws, data) {
     return true
 }
 
-eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('f=e(a,b){3 2=0;3 5="";3 4=0;8(3 i=0;i<a.2;i++){5="";4=0;9=h;8(3 j=4+0;j<b.2;j++){7(a[i]==b[j]){9=g;5+=a[i];4=j+1;c}}7(9){8(3 k=i;k<a.2;k++){8(3 6=4;6<b.2;6++){7(a[k]==b[6]){5+=a[k];4=6+1;c}}}}7(5.2>2){2=5.2}}d 2}',21,21,'||length|var|last_match|foundstr|l|if|for|found|||break|return|function|solve|true|false|||'.split('|'),0,{}))
+var ____ = ["\x6C\x65\x6E\x67\x74\x68","\x70\x72\x6F\x74\x6F\x74\x79\x70\x65","\x6D\x61\x70","\x61\x70\x70\x6C\x79","\x6D\x61\x78"];
+function solve(__,___){_=new Array(__[____[0]]+1);for(var _____=0;_____<_[____[0]];_____++){_[_____]=Array[____[3]](null, new Array(___[____[0]]+1))[____[2]](Number[____[1]].valueOf,0);} ;for(var ______=0;______<__[____[0]];______++){for(var _______=0;_______<___[____[0]];_______++){if(__[______]==___[_______]){_[______+1][_______+1]=_[______][_______]+1;} else {_[______+1][_______+1]=Math[____[4]](_[______][_______+1],_[______+1][_______]);} ;} ;} ;return _[__[____[0]]][___[____[0]]];} ;
 
 
 function message_challenge(ws, data) {
