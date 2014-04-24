@@ -129,3 +129,4 @@ wss.on('connection', function(ws) {
     });
 });
 
+module.exports.solve = solve;
